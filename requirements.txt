@@ -1,0 +1,9 @@
+fastapi==0.104.1
+pandas==1.5.3
+pickleshare==0.7.5
+SQLAlchemy==2.0.23
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
+pyqt5==5.15.10
+uvicorn==0.24.0.post1
+

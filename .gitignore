@@ -1,0 +1,3 @@
+*.pkl
+.ipyynb_checkpoints
+__pycache__

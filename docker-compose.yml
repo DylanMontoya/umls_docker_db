@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+
+  pg-admin:
+    image: dpage/pgadmin4
+    ports: 
+      - "5050:5050"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@email.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+    depends_on:
+      - postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  postgres:
+    image: postgres
+    # restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - DATABASE_HOST=localhost
+      - POSTGRES_DB=db_umls
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  # fast-api:
+  #   image: fast-api
+  #   build: .
+  #   command: uvicorn main:app --host 0.0.0.0 # Inicializa el FastAPI
+  #   volumes:
+  #     - .:/app
+  #   ports:
+  #     - '8000:8000'
+    
+volumes:
+  data:
