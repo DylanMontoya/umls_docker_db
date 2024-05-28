@@ -12,8 +12,6 @@ services:
       - PGADMIN_LISTEN_PORT=5050
     depends_on:
       - postgres
-    volumes:
-      - data:/var/lib/postgresql/data
 
   postgres:
     image: postgres
@@ -23,7 +21,6 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - DATABASE_HOST=localhost
       - POSTGRES_DB=db_umls
     volumes:
       - data:/var/lib/postgresql/data
